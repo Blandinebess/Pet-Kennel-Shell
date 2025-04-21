@@ -7,18 +7,20 @@ function createPet(name, species) {
         play: function() {
             this.happiness += 10;
             this.energy -= 20;
-            return `we played with ${this.name}! Happiness is after ${this.happiness},and energy is now ${this.energy}.`;
+            return `We played with ${this.name}! Happiness is now ${this.happiness},and energy is now ${this.energy}.`;
         },
         status: function() {
             return `Pet name: ${this.name}, species: ${this.species}, happiness: ${this.happiness}, energy: ${this.energy}`;
         },
         rest: function() {
-            this.energy += 100;
-            return `we rested ${this.name} has rested. Energy is now fully restore to  ${this.energy}.`;
+            this.energy = Math.min(this.energy +100, 100);
+            return `${this.name} has rested. Energy is now fully restore to  ${this.energy}.`;
         }
     };
-    const pet1 = createPet("Fluffy", "dog");
-    const pet2 = createPet("Buddy", "cat");
+}
+    
+    const pet1 = createPet("Makou", "dog");
+    const pet2 = createPet("Loulou", "cat");
     // pet1
     console.log(pet1.status());
     console.log(pet1.play());
@@ -27,4 +29,3 @@ function createPet(name, species) {
     console.log(pet2.status());
     console.log(pet2.play());
     console.log(pet2.rest());
-}
